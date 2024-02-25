@@ -41,7 +41,7 @@
 }
 
 .menu__link {
-  font-family: 'Rubic One', sans-serif;
+  font-family: "Rubic One", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,7 +64,7 @@
 
 .auth__button {
   font-size: 30px;
-  font-family: 'Rubic One', sans-serif;
+  font-family: "Rubic One", sans-serif;
   background-color: transparent;
   border: none;
   padding: 12px 20px 10px;
