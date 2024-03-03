@@ -58,6 +58,10 @@
   background-color: #ffff00;
 }
 
+.menu__link_active {
+  background-color: #ffff00;
+  pointer-events: none;
+}
 .auth {
   display: flex;
 }

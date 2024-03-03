@@ -1,9 +1,12 @@
+"use client"
 import Styles from "./Footer.module.css";
+import { usePathname } from "next/navigation";
 
 export const Footer = () => {
+  const pathname = usePathname();
   return (
     <footer className={Styles["footer"]}>
-      <a href="./index.html" className={Styles["footer__logo"]}>
+      <a href="/" className={Styles["footer__logo"]}>
         <span className={Styles["footer__logo-name"]}>pindie</span>
         <span className={Styles["footer__logo-copy"]}>, XXI век</span>
       </a>
