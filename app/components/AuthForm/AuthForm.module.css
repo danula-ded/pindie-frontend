@@ -35,6 +35,10 @@
   font-size: 22px;
 }
 
+.form__message {
+  margin-bottom: 20px;
+}
+
 .form__actions {
   display: flex;
   justify-content: center;
