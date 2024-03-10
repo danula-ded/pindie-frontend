@@ -4,6 +4,17 @@
   font-weight: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Anonymous Pro";
+  src: url(/fonts/anonymouspro-bold.woff);
+  font-weight: bold;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Rubic One";
+  src: url(/fonts/rubic-one.woff);
+  font-display: swap;
+}
 *,
 *::before,
 *::after {

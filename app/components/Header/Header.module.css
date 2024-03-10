@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Rubic One";
+  src: url(/fonts/rubic-one.woff);
+  font-display: swap;
+}
+
 .header {
   display: grid;
   grid-template-columns: min-content 1fr;

@@ -55,8 +55,8 @@ export default function GamePage(props) {
 
   const handleVote = async () => {
     const jwt = getJWT();
-    let usersIdArray = users_permissions_users.length
-      ? users_permissions_users.map((user) => user.id)
+    let usersIdArray = users.length
+      ? users.map((user) => user.id)
       : [];
     usersIdArray.push(currentUser.id);
     const response = await vote(
@@ -69,7 +69,7 @@ export default function GamePage(props) {
       setGame(() => {
         return {
           ...game,
-          users: [...users_permissions_users, currentUser],
+          users: [...users, currentUser],
         };
       });
     }
@@ -94,7 +94,7 @@ export default function GamePage(props) {
         <div className={Styles["about__vote"]}>
           <p className={Styles["about__vote-amount"]}>
             За игру уже проголосовали:{" "}
-            <span className={Styles["about__accent"]}>{game.users_permissions_users.length}</span>
+            <span className={Styles["about__accent"]}>{game.users.length}</span>
           </p>
           <button
             disabled={!isAuthorized || isVoted}
