@@ -1,4 +1,4 @@
-import { getGamesDataByCategory } from "./api/api-utils";
+import { getNormalizedGamesDataByCategory } from "./api/api-utils";
 
 import { Banner } from "./components/Banner/Banner";
 import { CardsList } from "./components/CardsList/CardsList";
@@ -7,8 +7,8 @@ import { Promo } from "./components/Promo/Promo";
 import { endpoints } from "./api/config.js";
 
 export default async function Home() {
-  const popularGames = await getGamesDataByCategory(endpoints.games,"popular");
-  const newGames = await getGamesDataByCategory(endpoints.games,"new");
+  const popularGames = await getNormalizedGamesDataByCategory(endpoints.games,"popular");
+  const newGames = await getNormalizedGamesDataByCategory(endpoints.games,"new");
   return (
     <main className="main">
       <Banner />
