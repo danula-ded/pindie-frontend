@@ -51,16 +51,16 @@ export const getGamesDataByCategory = async (url, category) => {
   return data;
 };
 
-
-
 //Для авторизации
 export const authorize = async (url, data) => {
   try {
+    console.log(url, data);
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
+    console.log(response);
     if (response.status !== 200) {
       throw new Error("Ошибка авторизации");
     }
@@ -70,3 +70,5 @@ export const authorize = async (url, data) => {
     return error;
   }
 };
+
+

@@ -8,11 +8,6 @@ export const AuthForm = (props) => {
   const [userData, setUserData] = useState(null);
   const [message, setMessage] = useState({ status: null, text: null });
 
-  useEffect(() => {
-    authorize(endpoints.auth, {identifier: 'aski@example.com', password: 'ilovehtml'})
-      .then(res => console.log(res))
-  }, [])
-
   const handleInput = (e) => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
@@ -61,6 +56,7 @@ export const AuthForm = (props) => {
           <input
             onInput={handleInput}
             className={Styles["form__field-input"]}
+            name="password"
             type="password"
             placeholder="***********"
           />
