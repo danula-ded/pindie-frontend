@@ -1,58 +1,29 @@
-"use client";
-import { Header } from "./components/Header/Header";
-import { Footer } from "./components/Footer/Footer";
+'use client';
 
-// Импорт контекста
-import { AuthContext } from "./context/app-context";
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
 
-// Импорты для работы с глобальным состоянием
-import { useEffect, useState } from "react";
-import { getJWT, setJWT, removeJWT, getMe } from "./api/api-utils";
-import { endpoints } from "./api/config";
+import { useEffect } from 'react';
+
+import { useStore } from './store/app-store';
 
 export const App = (props) => {
-  const [isAuth, setIsAuth] = useState(false);
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState("");
-
-  const login = (user, token) => {
-    setIsAuth(true);
-    setUser(user);
-    setToken(token);
-    setJWT(token);
-  };
-
-  const logout = () => {
-    setIsAuth(false);
-    setUser(null);
-    setToken("");
-    removeJWT();
-  };
-
-  const checkAuth = async () => {
-    const token = getJWT();
-    if (token) {
-      const me = await getMe(endpoints.me, token);
-      if (me) {
-        login(me, token);
-      } else {
-        logout();
-      }
-    }
-  };
+  /* Используем хук-хранилище */
+  const store = useStore();
 
   useEffect(() => {
-    async function check() {
-      await checkAuth();
-    };
-    check();
+  /* 
+    Проверяем, авторизован ли пользователь, 
+    функцией checkAuth из хранилища 
+  */
+    store.checkAuth();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuth, user, token, login, logout }}>
+    <>
       <Header />
       {props.children}
       <Footer />
-    </AuthContext.Provider>
-  );
+    </>
+  ) 
 };

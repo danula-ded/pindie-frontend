@@ -11,11 +11,10 @@ import {
 import { endpoints } from "@/app/api/config";
 import { Preloader } from "@/app/components/Preloader/Preloader";
 // контекст
-import { useContext } from "react";
-import { AuthContext } from "@/app/context/app-context";
+import { useStore } from "@/app/store/app-store";
 
 export default function GamePage(props) {
-  const authContext = useContext(AuthContext);
+  const authContext = useStore();
   const [preloaderVisible, setPreloaderVisible] = useState(true);
   const [game, setGame] = useState(null);
   const [isVoted, setIsVoted] = useState(false);
