@@ -9,20 +9,8 @@ import Styles from "./Header.module.css";
 import { Overlay } from "../Overlay/Overlay";
 import { Popup } from "../Popup/Popup";
 import { AuthForm } from "../AuthForm/AuthForm";
-import { getMe, isResponseOk } from "@/app/api/api-utils";
+import { getMe, getJWT, removeJWT, isResponseOk } from "@/app/api/api-utils";
 import { endpoints } from "@/app/api/config";
-
-export const setJWT = (jwt) => {
-  localStorage.setItem("jwt", jwt);
-};
-
-export const getJWT = () => {
-  return localStorage.getItem("jwt");
-};
-
-export const removeJWT = () => {
-  localStorage.removeItem("jwt");
-};
 
 export const Header = () => {
   const [isAuthorized, setIsAuthorized] = useState(false);

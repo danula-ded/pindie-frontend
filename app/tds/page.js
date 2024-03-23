@@ -1,12 +1,18 @@
-import { getNormalizedGamesDataByCategory } from "../api/api-utils"
-import { CardsList } from "../components/CardsList/CardsList.jsx";
-import { endpoints } from "../api/config.js";
+"use client";
+import { useGetDataByCategory } from "../api/api-hooks";
+import { CardsList } from "../components/CardsList/CardsList";
+import { endpoints } from "../api/config";
+import { Preloader } from "../components/Preloader/Preloader";
 
-export default async function TDS(){
-    const tdsGames = await getNormalizedGamesDataByCategory(endpoints.games,"TDS");
-    return (
-        <main className="main-inner">
-            <CardsList id="TDS" title="TDS" data={tdsGames}/>
-        </main>
-    )
+export default function New() {
+  const tdsGames = useGetDataByCategory(endpoints.games, "TDS");
+  return (
+    <main className="main-inner">
+      {tdsGames ? (
+        <CardsList id="TDS" title="TDS" data={tdsGames} />
+      ) : (
+        <Preloader />
+      )}
+    </main>
+  );
 }

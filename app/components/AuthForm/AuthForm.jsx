@@ -1,9 +1,8 @@
-'use client'
+"use client";
 import { useState, useEffect } from "react";
 import Styles from "./AuthForm.module.css";
-import { authorize, isResponseOk, getMe } from "@/app/api/api-utils";
+import { authorize, isResponseOk, getMe, setJWT } from "@/app/api/api-utils";
 import { endpoints } from "@/app/api/config";
-import { setJWT } from "../Header/Header";
 
 export const AuthForm = (props) => {
   const [authData, setAuthData] = useState({ identifier: "", password: "" });
@@ -13,7 +12,7 @@ export const AuthForm = (props) => {
   const handleInput = (e) => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userData = await authorize(endpoints.auth, authData);

@@ -8,10 +8,10 @@ import {
   getMe,
   isResponseOk,
   checkIfUserVoted,
+  getJWT,
 } from "@/app/api/api-utils";
 import { endpoints } from "@/app/api/config";
 import { Preloader } from "@/app/components/Preloader/Preloader";
-import { getJWT } from "@/app/components/Header/Header";
 
 export default function GamePage(props) {
   const [preloaderVisible, setPreloaderVisible] = useState(true);
@@ -23,7 +23,10 @@ export default function GamePage(props) {
 
   useEffect(() => {
     async function fetchData() {
-      const game = await getNormalizedGameDataById(endpoints.games, props.params.id);
+      const game = await getNormalizedGameDataById(
+        endpoints.games,
+        props.params.id
+      );
       isResponseOk(game) ? setGame(game) : setGame(null);
       setPreloaderVisible(false);
     }
@@ -55,9 +58,7 @@ export default function GamePage(props) {
 
   const handleVote = async () => {
     const jwt = getJWT();
-    let usersIdArray = users.length
-      ? users.map((user) => user.id)
-      : [];
+    let usersIdArray = users.length ? users.map((user) => user.id) : [];
     usersIdArray.push(currentUser.id);
     const response = await vote(
       `${endpoints.games}/${game.id}`,
