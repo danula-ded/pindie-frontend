@@ -44,7 +44,7 @@ export const App = (props) => {
   useEffect(() => {
     async function check() {
       await checkAuth();
-    }
+    };
     check();
   }, []);
 
