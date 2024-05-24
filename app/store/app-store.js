@@ -1,6 +1,6 @@
-import { create } from 'zustand';
-import { getJWT, setJWT, removeJWT, getMe } from '../api/api-utils';
-import { endpoints } from '../api/config';
+import { create } from "zustand";
+import { getJWT, setJWT, removeJWT, getMe } from "../api/api-utils";
+import { endpoints } from "../api/config";
 
 export const useStore = create((set) => ({
   isAuth: false,
@@ -24,7 +24,7 @@ export const useStore = create((set) => ({
       const user = await getMe(endpoints.me, jwt);
       if (user) {
         /* Сохраняем полученные данные и токен */
-        set({ isAuth: true, user, token: jwt });
+        set({ isAuth: true, user: { ...user, id: user._id }, token: jwt });
         setJWT(jwt);
       } else {
         /* Возвращаем изначальные состояния и удаляем токен */
