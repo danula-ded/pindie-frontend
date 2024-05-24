@@ -39,7 +39,9 @@ export default function GamePage(props) {
 
   const handleVote = async () => {
     const jwt = authContext.token;
-    let usersIdArray = users.length ? users.map((user) => user.id) : [];
+    let usersIdArray = game.users.length
+      ? game.users.map((user) => user.id)
+      : [];
     usersIdArray.push(authContext.user.id);
     const response = await vote(
       `${endpoints.games}/${game.id}`,
@@ -50,7 +52,7 @@ export default function GamePage(props) {
       setGame(() => {
         return {
           ...game,
-          users: [...users, authContext.user],
+          users: [...game.users, authContext.user],
         };
       });
       setIsVoted(true);
