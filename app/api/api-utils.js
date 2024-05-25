@@ -11,23 +11,10 @@ export const getData = async (url) => {
   }
 };
 
-export const setJWT = (jwt) => {
-  localStorage.setItem("jwt", jwt);
-};
-
-export const getJWT = () => {
-  return localStorage.getItem("jwt");
-};
-
-export const removeJWT = () => {
-  localStorage.removeItem("jwt");
-};
-
 export const isResponseOk = (response) => {
   return !(response instanceof Error);
 };
 
-/* */
 const normalizeDataObject = (obj) => {
   let str = JSON.stringify(obj);
 
@@ -43,20 +30,25 @@ export const normalizeData = (data) => {
   });
 };
 
-export const getNormalizedGamesDataByCategory = async (url, category) => {
-  const data = await getData(`${url}?categories.name=${category}`);
-  return isResponseOk(data) ? normalizeData(data) : data;
-};
-
 export const getNormalizedGameDataById = async (url, id) => {
   const data = await getData(`${url}/${id}`);
   return isResponseOk(data) ? normalizeDataObject(data) : data;
 };
 
-//Для авторизации
+export const getNormalizedGamesDataByCategory = async (url, category) => {
+  try {
+    const data = await getData(`${url}?categories.name=${category}`);
+    if (!data.length) {
+      throw new Error("Нет игр в категории");
+    }
+    return isResponseOk(data) ? normalizeData(data) : data;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const authorize = async (url, data) => {
   try {
-    console.log(url, data);
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -70,6 +62,24 @@ export const authorize = async (url, data) => {
   } catch (error) {
     return error;
   }
+};
+
+export const setJWT = (jwt) => {
+  document.cookie = `jwt=${jwt}`;
+  localStorage.setItem("jwt", jwt);
+};
+
+export const getJWT = () => {
+  if (document.cookie === "") {
+    return localStorage.getItem("jwt");
+  }
+  const jwt = document.cookie.split(";").find((item) => item.includes("jwt"));
+  return jwt ? jwt.split("=")[1] : null;
+};
+
+export const removeJWT = () => {
+  document.cookie = "jwt=;";
+  localStorage.removeItem("jwt");
 };
 
 export const getMe = async (url, jwt) => {

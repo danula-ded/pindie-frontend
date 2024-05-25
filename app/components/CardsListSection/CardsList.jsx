@@ -8,11 +8,10 @@ export const CardsList = (props) => {
       {props.data.map((item) => {
         return (
           <li className={Styles["cards-list__item"]} key={item.id}>
-            <Link
-              href={`/games/${item.id}`}
-              className={Styles["card-list__link"]}
-            >
-              <Card {...item} />
+            <Link href={`/games/${item.id}`} className={Styles["card-list__link"]}>
+              <Card
+                {...item}
+              />
             </Link>
           </li>
         );

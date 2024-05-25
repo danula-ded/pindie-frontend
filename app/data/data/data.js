@@ -1,10 +1,10 @@
 export const data = [
   {
     id: 1,
-    title: "Crystal Keeper",
+    title: "Crystal Kepper",
     developer: "Lonely Baobab",
     description:
-      "Управляй боевым дроном, чтобы любой ценой защитить кристалл от враждебных космо-слизней.",
+      "Управляйте боевым дроном и в течении 5 минут любой ценой защищайте кристалл от враждебных космо-слизней.",
     image:
       "https://code.s3.yandex.net/teens/pindie-games/cristal-keeper/cover.png",
     link: "https://code.s3.yandex.net/teens/pindie-games/cristal-keeper/game/index.html",
@@ -45,7 +45,7 @@ export const data = [
     title: "Dangeons'n'Caves. Prologue",
     developer: "F-Style",
     description:
-      "Безымянный герой исследует пещеры и подземелья, чтобы найти больше информации о себе.",
+      "Безымянный герой исследует пещеры и подземелья, чтобы найти больше информации о себе",
     image:
       "https://code.s3.yandex.net/teens/pindie-games/dangeons-n-caves-prologue/cover.png",
     link: "https://code.s3.yandex.net/teens/pindie-games/dangeons-n-caves-prologue/game/index.html",
@@ -86,7 +86,7 @@ export const data = [
     title: "Defence of Crystal",
     developer: "MastWe",
     description:
-      "Защищай магический кристалл от монстров и уничтожай кладбища, чтобы спасти Землю, которую поглотил мрак.",
+      'Вы играете за волшебника, последнюю надежду Земли, которую поглотил мрак... Вы должны любой ценой защищать магический кристалл, ведь это единственное, что сможет вернуть всё на круги своя, но полчища монстров так и норовят его уничтожить. Ваша задача уничтожить все кладбища.',
     image:
       "https://code.s3.yandex.net/teens/pindie-games/defence-of-crystal/cover.png",
     link: "https://code.s3.yandex.net/teens/pindie-games/defence-of-crystal/game/index.html",
@@ -127,7 +127,7 @@ export const data = [
     title: "Go Away",
     developer: "Mahisto",
     description:
-      "Управляй автомобилем, избегая аварий и перепрыгивая препятствия на пути к следующему уровню.",
+      'Цель игры: добраться до конца уровня, не столкнувшись с встречными автомобилями.Дополнительные возможности: в игре можно проезжать по увеличивающей скорость стрелке, которые улучшают характеристики машинки в скорости. "Прыжок" позволяет машинке перепрыгивать препятствие.',
     image: "https://code.s3.yandex.net/teens/pindie-games/go-away/cover.jpg",
     link: "https://code.s3.yandex.net/teens/pindie-games/go-away/game/index.html",
     category: [
@@ -163,7 +163,7 @@ export const data = [
     title: "G.U.N.N.E.R.",
     developer: "IDKWIAm",
     description:
-      "Продержись как можно дольше, отбиваясь от врагов, которых будет становиться всё больше.",
+      "Ваша задача — отбиваться от бесконечных волн врагов, которых будет становится все больше и больше, как долго вы сможете продержаться?",
     image: "https://code.s3.yandex.net/teens/pindie-games/gunner/cover.png",
     link: "https://code.s3.yandex.net/teens/pindie-games/gunner/game/index.html",
     category: [
@@ -207,7 +207,7 @@ export const data = [
     title: "Space Terror",
     developer: "IDKWIAm",
     description:
-      "Лети как можно дальше в космическом пространстве, уничтожая всё на своём пути.",
+      "Летите сквозь космос и уничтожайте все на своем пути! Пролетите как можно дальше!",
     image:
       "https://code.s3.yandex.net/teens/pindie-games/space-terror/cover.png",
     link: "https://code.s3.yandex.net/teens/pindie-games/space-terror/game/index.html",
@@ -243,8 +243,7 @@ export const data = [
     id: 7,
     title: "Square Slayer",
     developer: "niclan",
-    description:
-      "Уворачивайся и отстреливайся от озлобленных квадратов и собирай жизни для перехода на следующий уровень.",
+    description: "circle shoot square heal levelup crash game",
     image:
       "https://code.s3.yandex.net/teens/pindie-games/square-slayer/cover.png",
     link: "https://code.s3.yandex.net/teens/pindie-games/square-slayer/game/index.html",

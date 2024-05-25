@@ -16,7 +16,7 @@
 }
 
 .footer__logo-name {
-  font-family: "Rubic One", sans-serif;
+  font-family: 'Rubic One', sans-serif;
   text-transform: uppercase;
   font-size: 26px;
 }
@@ -43,7 +43,7 @@
 }
 
 .footer .social-list__link:hover {
-  background-color: #ffff00;
+  background-color: #FFFF00;
   color: black;
 }
 
@@ -76,3 +76,6 @@
     font-size: 24px;
   }
 }
+
+
+
