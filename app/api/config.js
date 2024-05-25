@@ -1,4 +1,4 @@
-export const BASE_URL = "https://danula-ded-front.nomoredomainswork.ru/api";
+export const BASE_URL = "https://danula-ded-back.nomoredomainswork.ru/api";
 
 export const endpoints = {
   games: `${BASE_URL}/games`,
